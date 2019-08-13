@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { CurrentUsers } from 'src/User';
+import { FormControl, FormGroup } from '@angular/forms';
 
 const createUser = gql`
 mutation usuarios($data: UsuarioInput) {
@@ -14,8 +15,6 @@ mutation usuarios($data: UsuarioInput) {
   }
 `;
 
-
-
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
@@ -24,22 +23,23 @@ mutation usuarios($data: UsuarioInput) {
 
 export class UserFormComponent implements OnInit {
 
+  formUser;
   constructor(
     private apollo: Apollo) { }
 
   ngOnInit() {
+    this.formUser  = new FormGroup({
+      nombres: new FormControl(''),
+      apellidos: new FormControl(''),
+      usuario: new FormControl('')
+    });
   }
 
   onSubmit() {
-    console.log('holi')
     this.apollo.mutate({
       mutation: createUser,
       variables: {
-        "data": {
-          "nombres": "Hola3",
-          "apellidos": "Hola3",
-          "usuario": "hola3"
-        }
+        "data": this.formUser.value
       },
       refetchQueries: [{
         query: CurrentUsers,

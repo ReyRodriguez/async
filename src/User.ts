@@ -13,3 +13,14 @@ export const CurrentUsers = gql`
     }
   }
 `;
+
+export const DeteleUser = gql`
+mutation usuarios($id: Int){
+  usuarios(
+    delete: {id: $id }
+  ) {
+    id
+  }
+}
+`;
+

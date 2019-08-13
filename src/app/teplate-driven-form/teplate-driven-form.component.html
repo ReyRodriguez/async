@@ -1,0 +1,31 @@
+
+<div class="container w-full">
+        <h1>Template Driven Form</h1>
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/4 px-3">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                First Name
+              </label>
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" [(ngModel)]="user.nombres" type="text" placeholder="John" id="grid-first-name" name="nombres" required>
+                </div>
+                <div class="w-full md:w-1/4 px-3">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                Last Name
+              </label>
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" [(ngModel)]="user.apellidos" type="text" placeholder="Doe" id="grid-last-name" name="apellidos">
+                </div>
+                <div class="w-full md:w-1/4 px-3">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-nick-name">
+                Nick Name
+              </label>
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" [(ngModel)]="user.usuario" type="text" id="grid-nick-name" placeholder="JohnDoe" name="usuario">
+                </div>
+                <div class="w-full md:w-1/4 px-3 self-center">
+                    <button class="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded" type="submit">
+                Registrar
+              </button>
+                </div>
+            </div>
+        </form>
+    </div>

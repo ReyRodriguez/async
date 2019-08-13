@@ -8,7 +8,7 @@ import gql from 'graphql-tag';
 export class GraphqlService extends Subscription {
   
   document = gql`
-  subscription CurrentUsers {
+  query CurrentUsers {
     usuarios {
       data {
         id
